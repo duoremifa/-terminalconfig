@@ -1,0 +1,144 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions":
+    [
+        {
+            "command": "togglePaneZoom",
+            "id": "User.toggleZoom"
+        },
+        {
+            "command":
+            {
+                "action": "copy"
+            },
+            "id": "User.copy"
+        },
+        {
+            "command":
+            {
+                "action": "newTab"
+            },
+            "id": "User.newTab"
+        },
+        {
+            "command": "paste",
+            "id": "User.paste"
+        },
+        {
+            "command":
+            {
+                "action": "splitPane"
+            },
+            "id": "User.splitPaneH"
+        },
+        {
+            "command":
+            {
+                "action": "splitPane",
+                "split": "right"
+            },
+            "id": "User.splitPaneV"
+        },
+        {
+            "command": "closePane",
+            "id": "User.closePane"
+        }
+    ],
+    "alwaysShowTabs": true,
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "keybindings":
+    [
+        {
+            "id": "User.splitPaneH",
+            "keys": "alt+shift+minus"
+        },
+        {
+            "id": "User.splitPaneV",
+            "keys": "alt+shift+plus"
+        },
+        {
+            "id": "User.closePane",
+            "keys": "ctrl+shift+w"
+        }
+    ],
+    "launchMode": "default",
+    "newTabMenu":
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles":
+    {
+        "defaults":
+        {
+            "antialiasingMode": "cleartype",
+            "colorScheme": "macOS Dark",
+            "cursorShape": "bar",
+            "font":
+            {
+                "face": "Sarasa Mono SC",
+                "features":
+                {
+                    "calt": 1
+                },
+                "size": 10,
+                "weight": "normal"
+            },
+            "opacity": 85,
+            "padding": "12, 16, 12, 16",
+            "scrollbarState": "hidden",
+            "useAcrylic": true
+        },
+        "list":
+        [
+            {
+                "commandline": "powershell.exe -NoLogo",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/tile_powershell_70.png",
+                "name": "PowerShell",
+                "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "commandline": "cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afce97aa6601}",
+                "hidden": false,
+                "name": "Command Prompt",
+                "startingDirectory": "%USERPROFILE%"
+            }
+        ]
+    },
+    "schemes":
+    [
+        {
+            "background": "#1E1E1E",
+            "black": "#1E1E1E",
+            "blue": "#2B66FF",
+            "brightBlack": "#7F7F7F",
+            "brightBlue": "#6C9EFF",
+            "brightCyan": "#5CE3F0",
+            "brightGreen": "#5FF96B",
+            "brightPurple": "#E667D9",
+            "brightRed": "#FF6E62",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#FFC95E",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#19A9C7",
+            "foreground": "#DDDDDD",
+            "green": "#19C718",
+            "name": "macOS Dark",
+            "purple": "#C027B4",
+            "red": "#E5222B",
+            "selectionBackground": "#264F78",
+            "white": "#DDDDDD",
+            "yellow": "#E5A922"
+        }
+    ],
+    "theme": "dark",
+    "themes": [],
+    "useAcrylicInTabRow": true
+}
