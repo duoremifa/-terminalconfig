@@ -1,0 +1,28 @@
+# =============================================================================
+# Claude Code setup (append this to ~/.zshrc)
+# Claude Code 配置（把这段追加到 ~/.zshrc）
+# =============================================================================
+
+# 快捷启动别名 / Shortcut alias
+alias ai="claude"
+
+# 如果使用 CC-Switch 默认端口以外的端口，取消下面的注释并修改端口号
+# If using a non-default CC-Switch port, uncomment and edit:
+# export ANTHROPIC_BASE_URL="http://127.0.0.1:15721"
+
+# 中文 locale（避免乱码）/ Chinese locale
+export LANG="zh_CN.UTF-8"
+export LC_ALL="zh_CN.UTF-8"
+
+# 历史记录优化 / History tweaks
+HISTSIZE=100000
+SAVEHIST=100000
+setopt HIST_IGNORE_DUPS       # 不记录连续重复命令
+setopt HIST_IGNORE_SPACE      # 以空格开头的命令不进历史（方便输敏感内容）
+
+# =============================================================================
+# 应用方法 / How to apply:
+#
+#   cat zshrc.append >> ~/.zshrc
+#   source ~/.zshrc
+# =============================================================================
