@@ -17,6 +17,11 @@ A consistent terminal look across Windows and macOS — same font (**Sarasa Mono
 ├── windows/
 │   ├── settings.json            # Windows Terminal 配置（原样备份）
 │   └── README.md                # Windows 完整安装步骤
+├── claude-code/
+│   ├── settings.json            # Claude Code 用户配置（通过 CC-Switch 走国内模型）
+│   ├── zshrc.append             # 追加到 ~/.zshrc 的 shell 配置片段
+│   ├── CLAUDE.md                # 项目级指令模板（放到任意项目根目录）
+│   └── README.md                # Mac 上 Claude Code 安装说明
 └── README.md                    # 本文件 / this file
 ```
 
@@ -38,6 +43,17 @@ A consistent terminal look across Windows and macOS — same font (**Sarasa Mono
 3. 把 `windows/settings.json` 复制到 `%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json`
 
 详细步骤见 [`windows/README.md`](windows/README.md)。
+
+### Claude Code (Mac)
+
+1. 装 Node.js：`brew install node`
+2. 装 Claude Code：`npm install -g @anthropic-ai/claude-code`
+3. 装 CC-Switch Mac 版：https://github.com/farion1231/cc-switch/releases （dmg，已经 Apple 公证）
+4. 在 CC-Switch 里配置百炼 API Key + 模型映射
+5. 复制配置：`cp claude-code/settings.json ~/.claude/settings.json`
+6. 启动：`claude`（或先 `cat claude-code/zshrc.append >> ~/.zshrc` 加个别名）
+
+详细步骤见 [`claude-code/README.md`](claude-code/README.md)。
 
 ## Color scheme: macOS Dark
 
