@@ -132,7 +132,70 @@ ai
 | `env.CLAUDE_AUTOCOMPACT_PCT_OVERRIDE = "75"` | 上下文用到 75% 时自动压缩 |
 | `theme = "dark"` | 暗色主题（和 Terminal.app 配色一致） |
 
-### 如果你不用 CC-Switch
+### 不用 CC-Switch，直连百炼（推荐 —— 不需要公司内网）
+
+百炼官方提供 Anthropic 兼容端点，Claude Code 可以**直接连**，不需要 CC-Switch 在中间转。
+
+**步骤：**
+
+1. 申请百炼 API Key：
+   - 打开 https://bailian.console.aliyun.com/
+   - 用你自己的阿里云账号登录（没有就注册一个，支持支付宝）
+   - 右上角头像 → **API-KEY 管理** → **创建 API Key**
+   - 复制生成的 Key（`sk-` 开头，很长一串）
+
+2. 复制直连版配置：
+   ```bash
+   cp settings-bailian-direct.json ~/.claude/settings.json
+   ```
+
+3. 编辑 `~/.claude/settings.json`，把第 3 行的 `sk-你的百炼APIKey` 换成你自己的 Key：
+   ```bash
+   # 用你顺手的编辑器，比如 nano / vim / VSCode
+   nano ~/.claude/settings.json
+   ```
+
+4. （可选）调整模型档位：
+   - 百炼上可用的模型名和 CC-Switch 里的不一样
+   - 默认模板里我用的是 `qwen-plus` 和 `qwen-turbo`（通义千问，覆盖 Opus/Sonnet/Haiku/Fable 四档）
+   - 你也可以根据需要在百炼控制台看 [模型列表](https://help.aliyun.com/zh/model-studio/models)，把字段改成你想要的
+
+5. 启动：
+   ```bash
+   claude
+   ```
+
+**直连版 settings 模板**（已放在 `settings-bailian-direct.json`）：
+
+```json
+{
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "sk-你的百炼APIKey",
+    "ANTHROPIC_BASE_URL": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "qwen-plus",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "qwen-plus",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "qwen-turbo",
+    "ANTHROPIC_DEFAULT_FABLE_MODEL": "qwen-turbo"
+  },
+  "theme": "dark"
+}
+```
+
+### 百炼常用模型名对照
+
+| 档位 | 推荐模型 | 说明 |
+|---|---|---|
+| Opus（重活） | `qwen-plus` | 通义千问 Plus，最强 |
+| Sonnet（日常） | `qwen-plus` | 同上 |
+| Haiku（轻活） | `qwen-turbo` | 通义千问 Turbo，快+便宜 |
+| Fable（最快） | `qwen-turbo` | 同上 |
+
+> 💡 百炼也有 DeepSeek / GLM / Kimi 等第三方模型可订阅，但需要单独在百炼控制台开通。具体模型名以 [百炼模型列表](https://help.aliyun.com/zh/model-studio/models) 为准。
+>
+> 💰 百炼有**免费额度**：`qwen-turbo` 等轻量模型长期免费；`qwen-plus` 有 100 万 token 赠送。轻度使用基本不花钱。
+
+### 如果你用 Anthropic 官方 API（海外网络 + 付费账号）
 
 把 settings.json 里的 `env` 部分全部删掉，改成：
 
@@ -198,7 +261,8 @@ export LC_ALL="zh_CN.UTF-8"
 
 ## 文件清单 / Files
 
-- `settings.json` — Claude Code 用户配置（对应 `~/.claude/settings.json`）
+- `settings.json` — CC-Switch 代理版配置（公司内网 + CC-Switch 用）
+- `settings-bailian-direct.json` — **直连百炼版配置（推荐，公网可用，不需要 CC-Switch / 公司内网）**
 - `zshrc.append` — 可选的 shell 配置片段（追加到 `~/.zshrc`）
 - `CLAUDE.md` — 项目级指令模板（放到任意项目根目录，Claude Code 会自动读取）
 - `README.md` — 本文档
