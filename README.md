@@ -18,9 +18,11 @@ A consistent terminal look across Windows and macOS — same font (**Sarasa Mono
 │   ├── settings.json            # Windows Terminal 配置（原样备份）
 │   └── README.md                # Windows 完整安装步骤
 ├── claude-code/
-│   ├── settings.json            # Claude Code 用户配置（通过 CC-Switch 走国内模型）
+│   ├── settings.json            # Claude Code 用户配置（CC-Switch 代理版）
+│   ├── settings-bailian-direct.json  # 直连百炼版（不需要 CC-Switch / 公司内网）
 │   ├── zshrc.append             # 追加到 ~/.zshrc 的 shell 配置片段
 │   ├── CLAUDE.md                # 项目级指令模板（放到任意项目根目录）
+│   ├── zhengxi-views-install.md # 郑希观点库 skill 的 Windows 安装指南
 │   └── README.md                # Mac 上 Claude Code 安装说明
 └── README.md                    # 本文件 / this file
 ```
