@@ -24,6 +24,8 @@ A consistent terminal look across Windows and macOS — same font (**Sarasa Mono
 │   ├── CLAUDE.md                # 项目级指令模板（放到任意项目根目录）
 │   ├── zhengxi-views-install.md # 郑希观点库 skill 的 Windows 安装指南
 │   └── README.md                # Mac 上 Claude Code 安装说明
+├── tools/
+│   └── video-to-text-best-practices.md  # 视频转文字/翻译工具对比与安装指南
 └── README.md                    # 本文件 / this file
 ```
 
